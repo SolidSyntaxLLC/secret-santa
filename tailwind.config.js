@@ -9,6 +9,13 @@ module.exports = {
 
     theme: {
         extend: {
+            colors: {
+                brand: '#8598AA',
+                light: '#EFEAE6',
+                laccent: '#C1A455',
+                daccent: '#88657E',
+                dark: '#3F485D',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },

@@ -1,3 +1,19 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.btn {
+    @apply px-4;
+    @apply py-2;
+    @apply text-base;
+    @apply text-center;
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+}
+
+.btn-primary {
+    @apply bg-brand;
+    @apply text-light;
+    @apply rounded-md;
+}
