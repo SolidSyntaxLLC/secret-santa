@@ -17,3 +17,27 @@
     @apply text-light;
     @apply rounded-md;
 }
+
+.card {
+    @apply p-5;
+    @apply rounded-md;
+}
+
+.card-header {
+    @apply mb-3;
+}
+
+.card-title {
+    @apply font-bold;
+    @apply text-base;
+    @apply uppercase;
+    @apply mb-2;
+}
+
+.card-body {
+    @apply mb-3;
+}
+
+.card-footer {
+    @apply text-sm;
+}
