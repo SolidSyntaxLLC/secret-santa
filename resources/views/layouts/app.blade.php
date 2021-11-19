@@ -20,6 +20,15 @@
         <div class="min-h-screen bg-light">
             @include('layouts.navigation')
 
+            <!-- Alert Banner -->
+            @if (session('flash'))
+                <x-alert-banner
+                    type="{{ session('flash.type') ?? '' }}"
+                    message="{{ session('flash.message') ?? '' }}"
+                    link="{{ session('flash.link') ?? '' }}"
+                    buttonText="{{ session('flash.buttonText') ?? '' }}"/>
+            @endif
+
             <!-- Page Heading -->
             <header class="bg-light">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

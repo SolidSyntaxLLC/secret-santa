@@ -15,6 +15,11 @@ module.exports = {
                 laccent: '#C1A455',
                 daccent: '#88657E',
                 dark: '#3F485D',
+                primary: '#8398ae',
+                info: '#2c2b4a',
+                success: '#5da86c',
+                warning: '#da9834',
+                danger: '#f44336',
             },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],

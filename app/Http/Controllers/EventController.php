@@ -15,6 +15,15 @@ class EventController extends Controller
     {
         $events = auth()->user()->events->sortBy('date');
 
+        if(auth()->user()->email_verified_at == null) {
+            $flash['type'] = 'info';
+            $flash['message'] = 'Please verify your email address.';
+            $flash['link'] = route('verification.send');
+            $flash['buttonText'] = 'Resend Email';
+
+            session()->flash('flash', $flash);
+        }
+
         return view('dashboard', ['events' => $events]);
     }
 
