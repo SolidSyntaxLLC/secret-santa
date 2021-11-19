@@ -23,6 +23,8 @@ Route::get('/email/verification-notification', [\App\Http\Controllers\Auth\Email
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\EventController::class, 'index'])->name('dashboard');
+    Route::get('/event', [\App\Http\Controllers\EventController::class, 'create'])->name('events.create');
+    Route::post('/event', [\App\Http\Controllers\EventController::class, 'store'])->name('events.store');
 });
 
 require __DIR__.'/auth.php';

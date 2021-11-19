@@ -24,7 +24,7 @@ class EventController extends Controller
             session()->flash('flash', $flash);
         }
 
-        return view('dashboard', ['events' => $events]);
+        return view('events.index', ['events' => $events]);
     }
 
     /**
@@ -34,7 +34,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.form');
     }
 
     /**

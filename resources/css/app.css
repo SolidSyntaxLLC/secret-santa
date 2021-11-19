@@ -3,19 +3,27 @@
 @import 'tailwindcss/utilities';
 
 .btn {
-    @apply px-4;
-    @apply py-2;
-    @apply text-base;
-    @apply text-center;
-    @apply flex;
-    @apply justify-center;
-    @apply items-center;
+    @apply px-4 py-2 text-base text-center flex justify-center items-center rounded-md;
 }
 
 .btn-primary {
-    @apply bg-brand;
-    @apply text-light;
-    @apply rounded-md;
+    @apply bg-primary text-light;
+}
+
+.btn-info {
+    @apply bg-info text-light;
+}
+
+.btn-success {
+    @apply bg-success text-light;
+}
+
+.btn-warning {
+    @apply bg-warning text-light;
+}
+
+.btn-danger {
+    @apply bg-danger text-light;
 }
 
 .card {
@@ -40,4 +48,18 @@
 
 .card-footer {
     @apply text-sm;
+}
+
+input[type='text'], input[type='date'] {
+    background-color: transparent;
+    border: none;
+}
+
+.input-group {
+    @apply my-5;
+    border-bottom: 1px solid #9CA3AF;
+}
+
+label {
+    @apply text-xs block;
 }
