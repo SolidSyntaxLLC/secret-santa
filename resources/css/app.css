@@ -51,6 +51,7 @@
 }
 
 input[type='text'], input[type='date'] {
+    @apply  w-full;
     background-color: transparent;
     border: none;
 }

@@ -7,7 +7,7 @@
 
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ route('events.store') }}" class="w-max mx-auto">
+            <form method="POST" action="{{ route('events.store') }}" class="min-w-max max-w-2xl mx-auto">
                 @csrf
 
                 <div class="input-group">
@@ -26,8 +26,8 @@
                     <input type="date" name="date" id="date"/>
                 </div>
 
-                <div class="text-center">
-                    <x-button>
+                <div>
+                    <x-button class="mx-auto">
                         {{ __('Save') }}
                     </x-button>
                 </div>
