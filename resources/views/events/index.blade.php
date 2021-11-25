@@ -37,7 +37,8 @@
                 </div>
                 <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach($events as $event)
-                        <div @class(['card', 'bg-dark text-light' => $loop->first, 'bg-light text-dark border-dark border-2' => !$loop->first])>
+                    <div @class(['card', 'bg-dark text-light' => $loop->first, 'bg-light text-dark border-dark border-2' => !$loop->first])>
+                        <a href="{{ route('events.show', ['id' => $event->id]) }}" class="cursor">
                         <div class="card-header">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -46,7 +47,6 @@
                         <div class="card-title">
                             {{ $event->name }}
                         </div>
-                        <div class="card-body"></div>
                         <div class="card-footer">
                             <div class="flex justify-between content-center">
                                 <div>{{ date('M j, Y', strtotime($event->date)) }}</div>
@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                 </div>
                 @endforeach
         </div>
