@@ -17,6 +17,11 @@
                     </label>
                     <input type="text" name="name" id="name"/>
                 </div>
+                <div>
+                    @error('name')
+                        <div class="text-danger text-xs">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="input-group">
                     <label for="date">
@@ -24,6 +29,11 @@
                         <span class="text-danger">&nbsp*</span>
                     </label>
                     <input type="date" name="date" id="date"/>
+                </div>
+                <div>
+                    @error('date')
+                        <div class="text-danger text-xs">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -45,7 +46,23 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'date' => 'required|date',
+        ]);
+
+        Event::create([
+            'owner' => auth()->user()->id,
+            'name' => $request->input('name'),
+            'date' => $request->input('date'),
+        ]);
+
+        $flash['type'] = 'success';
+        $flash['message'] = 'Your event has been created.';
+
+        session()->flash('flash', $flash);
+
+        return redirect()->route('events.create');
     }
 
     /**
