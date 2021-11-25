@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/event', [\App\Http\Controllers\EventController::class, 'create'])->name('events.create');
     Route::post('/event', [\App\Http\Controllers\EventController::class, 'store'])->name('events.store');
     Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
+    Route::post('/event/{id}', [\App\Http\Controllers\EventController::class, 'update'])->name('events.update');
+    Route::get('/event/{id}/edit', [\App\Http\Controllers\EventController::class, 'edit'])->name('events.edit');
 });
 
 require __DIR__.'/auth.php';
