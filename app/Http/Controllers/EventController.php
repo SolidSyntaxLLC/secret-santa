@@ -126,6 +126,14 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        $flash['type'] = 'success';
+        $flash['message'] = 'Your event has been deleted.';
+
+        session()->flash('flash', $flash);
+
+        return redirect()->route('dashboard');
     }
 }

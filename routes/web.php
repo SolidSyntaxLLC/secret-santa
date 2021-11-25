@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
     Route::post('/event/{id}', [\App\Http\Controllers\EventController::class, 'update'])->name('events.update');
     Route::get('/event/{id}/edit', [\App\Http\Controllers\EventController::class, 'edit'])->name('events.edit');
+    Route::get('/event/{id}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
 });
 
 require __DIR__.'/auth.php';
