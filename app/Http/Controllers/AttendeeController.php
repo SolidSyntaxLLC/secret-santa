@@ -66,9 +66,9 @@ class AttendeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $attendee)
+    public function show($id, Attendee $attendee)
     {
-        //
+        return view('attendees.show', ['attendee' => $attendee]);
     }
 
     /**
