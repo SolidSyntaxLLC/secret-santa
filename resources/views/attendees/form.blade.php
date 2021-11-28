@@ -11,7 +11,7 @@
 
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form method="POST" action="{{ isset($attendee) ? route('attendees.update', ['id' => $event_id, 'attendee' => $attendee->id]) : route('attendees.store', ['id' => $event_id]) }}" class="min-w-max max-w-2xl mx-auto">
+            <form method="POST" action="{{ isset($attendee) ? route('attendees.update', ['id' => $event_id, 'attendee' => $attendee]) : route('attendees.store', ['id' => $event_id]) }}" class="min-w-max max-w-2xl mx-auto">
                 @csrf
 
                 <div class="input-group">
@@ -69,7 +69,7 @@
                     <label for="notes">
                         {{ __('Notes') }}
                     </label>
-                    <textarea name="notes" id="notes" value="{{ $attendee->wishlist ?? old('notes') }}"></textarea>
+                    <textarea name="notes" id="notes">{{ $attendee->notes ?? old('notes') }}</textarea>
                 </div>
                 <div>
                     @error('notes')

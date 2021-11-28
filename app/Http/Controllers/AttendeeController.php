@@ -77,9 +77,9 @@ class AttendeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $attendee)
+    public function edit($id, Attendee $attendee)
     {
-        //
+        return view('attendees.form', ['event_id' => $id, 'attendee' => $attendee]);
     }
 
     /**
@@ -89,9 +89,29 @@ class AttendeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $attendee)
+    public function update(Request $request, $id, Attendee $attendee)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required_without:phone|nullable|email|max:100',
+            'phone' => 'required_without:email|nullable|string|max:100',
+            'wishlist' => 'nullable|url|max:255',
+            'notes' => 'nullable|string',
+        ]);
+
+        $attendee->name = $request->input('name');
+        $attendee->email = $request->input('email') ?? null;
+        $attendee->phone = $request->input('phone') ?? null;
+        $attendee->wishlist = $request->input('wishlist') ?? null;
+        $attendee->notes = $request->input('notes') ?? null;
+        $attendee->save();
+
+        $flash['type'] = 'success';
+        $flash['message'] = 'Your attendee has been updated.';
+
+        session()->flash('flash', $flash);
+
+        return redirect()->route('attendees.edit', ['id' => $id, 'attendee' => $attendee]);
     }
 
     /**
