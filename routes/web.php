@@ -23,12 +23,27 @@ Route::get('/email/verification-notification', [\App\Http\Controllers\Auth\Email
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\EventController::class, 'index'])->name('dashboard');
-    Route::get('/event', [\App\Http\Controllers\EventController::class, 'create'])->name('events.create');
-    Route::post('/event', [\App\Http\Controllers\EventController::class, 'store'])->name('events.store');
-    Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
-    Route::post('/event/{id}', [\App\Http\Controllers\EventController::class, 'update'])->name('events.update');
-    Route::get('/event/{id}/edit', [\App\Http\Controllers\EventController::class, 'edit'])->name('events.edit');
-    Route::get('/event/{id}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
+
+    Route::prefix('event')->group(function () {
+        Route::name('events.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\EventController::class, 'create'])->name('create');
+            Route::post('/', [\App\Http\Controllers\EventController::class, 'store'])->name('store');
+            Route::get('/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('show');
+            Route::post('/{id}', [\App\Http\Controllers\EventController::class, 'update'])->name('update');
+            Route::get('/{id}/edit', [\App\Http\Controllers\EventController::class, 'edit'])->name('edit');
+            Route::get('/{id}/delete', [\App\Http\Controllers\EventController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::name('attendees.')->group(function () {
+            Route::get('/{id}/attendees', [\App\Http\Controllers\EventController::class, 'index'])->name('index');
+            Route::get('/{id}/attendees/create', [\App\Http\Controllers\AttendeeController::class, 'create'])->name('create');
+            Route::post('/{id}/attendees/create', [\App\Http\Controllers\AttendeeController::class, 'store'])->name('store');
+            Route::get('/{id}/attendees/{attendee}', [\App\Http\Controllers\AttendeeController::class, 'show'])->name('show');
+            Route::get('/{id}/attendees/{attendee}/edit', [\App\Http\Controllers\AttendeeController::class, 'edit'])->name('edit');
+            Route::post('/{id}/attendees/{attendee}/edit', [\App\Http\Controllers\AttendeeController::class, 'update'])->name('update');
+            Route::get('/{id}/attendees/{attendee}/delete', [\App\Http\Controllers\AttendeeController::class, 'destroy'])->name('destroy');
+        });
+    });
 });
 
 require __DIR__.'/auth.php';

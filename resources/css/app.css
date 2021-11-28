@@ -6,6 +6,10 @@
     @apply px-4 py-2 text-base text-center flex justify-center items-center rounded-md;
 }
 
+.btn-icon {
+    @apply p-2 text-base text-center flex justify-center items-center rounded-md;
+}
+
 .btn-primary {
     @apply bg-primary text-light;
 }
@@ -50,8 +54,8 @@
     @apply text-sm;
 }
 
-input[type='text'], input[type='date'] {
-    @apply  w-full;
+input[type='text'], input[type='date'], textarea {
+    @apply  w-full focus:ring-0;
     background-color: transparent;
     border: none;
 }
@@ -63,4 +67,24 @@ input[type='text'], input[type='date'] {
 
 label {
     @apply text-xs block;
+}
+
+table {
+    @apply min-w-full divide-y divide-gray-200;
+}
+
+thead {
+    @apply bg-daccent;
+}
+
+th, td {
+    @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider;
+}
+
+th {
+    @apply text-light font-semibold;
+}
+
+td {
+    @apply text-daccent;
 }
